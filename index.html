@@ -10,10 +10,18 @@
   </title>
     <link rel="stylesheet" href="assets/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   </head>
   <body>
     <div class="btn-group-left" role="group" aria-label="...">
-      <button type="button" class="btn btn-default"><i class="fa fa-plus-square" aria-hidden="true">  Business Service</button>
+      <button type="button" class="btn btn-default"><i class="fa fa-plus-square" aria-hidden="true"></i> Business Service</button>
         <!-- Why are extra fa-plus-squares showing on page?? -->
 
       <button type="button" class="btn btn-default"><i class="fa fa-folder" aria-hidden="true"></i> Collapse All</button>
@@ -26,6 +34,42 @@
       <button type="button" class="btn btn-default"><i class="fa fa-retweet" aria-hidden="true"></i> Reload Daemon</button>
 </div>
 
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <!-- <div class="panel-heading">Name</div> -->
+  <div id="panel-heading-name">NAME</div>
+  <div id="panel-heading-links">LINKS</div>
+  <div id="panel-heading-editDelete">EDIT / DELETE</div>
+  <!-- Table -->
+  <table class="table">
+    <ul class="">
+      <li id="name">B1</li>
+
+      <li id="links"><a href=# target="_blank"><span>View in Topology UI</span></a></li>
+      <!-- Is span necessary in these list items? -->
+      <li id="edit-delete"><button type="button" class="btn btn-default"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></li>
+      <li id="edit-delete"><button type="button" class="btn btn-default"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</button></li>
+    </ul>
+
+    <ul class="">
+      <li id="name">B2</li>
+
+      <li id="links"><a href=# target="_blank"><span>View in Topology UI</span></a></li>
+      <!-- Is span necessary in these list items? -->
+      <li id="edit-delete"><button type="button" class="btn btn-default"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></li>
+      <li id="edit-delete"><button type="button" class="btn btn-default"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</button></li>
+    </ul>
+
+    <ul class="">
+      <li id="name">B3</li>
+
+      <li id="links"><a class="view-in-topo" href=# target="_blank"><span>View in Topology UI</span></a></li>
+      <!-- Is span necessary in these list items? -->
+      <li id="edit-delete"><button type="button" class="btn btn-default"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></li>
+      <li id="edit-delete"><button type="button" class="btn btn-default"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</button></li>
+    </ul>
+  </table>
+</div>
 
 
   </body>
