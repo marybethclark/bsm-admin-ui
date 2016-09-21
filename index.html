@@ -62,36 +62,37 @@
         <!-- Table goes in this row -->
         <div class="row">
             <div class="col-md-12">
-          <table class="table table-striped">
+          <table class="table table-striped table-bordered">
             <thead>
               <tr><!-- TABLE HEADER ROW -->
-                <th>NAME</th> <!-- TABLE HEADER CELLS -->
-                <th>LINKS</th>
+                <th class="table-column-1-width">NAME</th> <!-- TABLE HEADER CELLS -->
+                <th class="links-header">LINKS</th>
                 <th>EDIT / DELETE</th>
               </tr>
             </thead>
             <tbody>
               <tr><!-- TABLE ROW -->
-                <td>B1</td>
-                <td><a href=# target="_blank"><span>View in Topology UI</span></a></td>
+                <td class="table-column-1-width">B1</td>
+                <td><a href=# target="_blank"><span class="View-in-topology"><i class="fa fa-external-link-square" aria-hidden="true"></i>View in Topology UI</span></a></td>
                 <td> <button type="button" class="btn btn-default"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></li>
                 <li id="edit-delete"><button type="button" class="btn btn-default"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</button></td>
               </tr>
               <tr><!-- TABLE ROW -->
-                <td>B2</td>
-                <td><a href=# target="_blank"><span>View in Topology UI</span></a></td>
+
+                <td class="table-column-1-width">B2</td>
+                <td><a href=# target="_blank"><span class="View-in-topology"><i class="fa fa-external-link-square" aria-hidden="true"></i>View in Topology UI</span></a></td>
                 <td> <button type="button" class="btn btn-default"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></li>
                 <li id="edit-delete"><button type="button" class="btn btn-default"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</button></td>
               </tr>
               <tr><!-- TABLE ROW -->
-                <td>web servers</td>
-                <td><a href=# target="_blank"><span>View in Topology UI</span></a></td>
+                <td class="table-column-1-width">web servers</td>
+                <td><a href=# target="_blank"><span class="View-in-topology"><i class="fa fa-external-link-square" aria-hidden="true"></i>View in Topology UI</span></a></td>
                 <td> <button type="button" class="btn btn-default"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></li>
                 <li id="edit-delete"><button type="button" class="btn btn-default"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</button></td>
               </tr>
               <tr><!-- TABLE ROW -->
-                <td>www1</td>
-                <td><a href=# target="_blank"><span>View in Topology UI</span></a></td>
+                <td class="table-column-1-width">www1</td>
+                <td><a href=# target="_blank"><span class="View-in-topology"><i class="fa fa-external-link-square" aria-hidden="true"></i>View in Topology UI</span></a></td>
                 <td><button type="button" class="btn btn-default"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></li>
                 <li id="edit-delete"><button type="button" class="btn btn-default"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</button></td>
               </tr>
@@ -100,77 +101,3 @@
       </div> <!-- Closes div tag above table class=col-md-12-->
     </div><!-- Closes div tag with class=row for entire table -->
 </div> <!-- /container -->
-
-
-
-<!-- ********************* Old code below *****************************-->
-<!-- ***************************************************************** -->
-<!-- <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>
-
-      Manage Business Services |
-
-    OpenNMS Web Console
-  </title>
-    <link rel="stylesheet" href="assets/css/styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
-    Latest compiled and minified CSS
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
-Optional theme
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-
-Latest compiled and minified JavaScript
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-  </head>
-  <body>
-    <div class="btn-group-left" role="group" aria-label="...">
-      <button type="button" class="btn btn-default"><i class="fa fa-plus-square" aria-hidden="true"></i> New Business Service</button>
-
-      <button type="button" class="btn btn-default"><i class="fa fa-folder" aria-hidden="true"></i> Collapse All</button>
-
-      <button type="button" class="btn btn-default"><i class="fa fa-folder-open" aria-hidden="true"></i> Expand All</button>
-    </div>
-
-    <div class="btn-group-right" role="group" aria-label="...">
-      <button type="button" class="btn btn-default"><i class="fa fa-refresh" aria-hidden="true"></i> Refresh Table</button>
-      <button type="button" class="btn btn-default"><i class="fa fa-retweet" aria-hidden="true"></i> Reload Daemon</button>
-</div>
-
-<div class="panel panel-default">
-  <div id="panel-heading-name">NAME</div>
-  <div id="panel-heading-links">LINKS</div>
-  <div id="panel-heading-editDelete">EDIT / DELETE</div>
-  Table
-  <table class="table">
-    <ul class="">
-      <li id="name">B1</li>
-
-      <li id="links"><a href=# target="_blank"><span>View in Topology UI</span></a></li>
-      <li id="edit-delete"><button type="button" class="btn btn-default"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></li>
-      <li id="edit-delete"><button type="button" class="btn btn-default"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</button></li>
-    </ul>
-
-    <ul class="">
-      <li id="name">B2</li>
-
-      <li id="links"><a href=# target="_blank"><span>View in Topology UI</span></a></li>
-      <li id="edit-delete"><button type="button" class="btn btn-default"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></li>
-      <li id="edit-delete"><button type="button" class="btn btn-default"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</button></li>
-    </ul>
-
-    <ul class="">
-      <li id="name">B3</li>
-
-      <li id="links"><a class="view-in-topo" href=# target="_blank"><span>View in Topology UI</span></a></li>
-      <li id="edit-delete"><button type="button" class="btn btn-default"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></li>
-      <li id="edit-delete"><button type="button" class="btn btn-default"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</button></li>
-    </ul>
-  </table>
-</div>
-
-  </body>
-</html> -->

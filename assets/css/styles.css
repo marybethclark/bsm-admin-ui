@@ -1,4 +1,16 @@
+.View-in-topology{
+  margin-left: 60%;
+}
 
+th.links-header{/*not working*/
+  margin-left: 60%;
+}
+
+.table-column1-width{/*not working*/
+  width:600px;
+}
+
+/*************OLD CODE BELOW*****************/
 .btn-group-left{
     display: inline;
 }
