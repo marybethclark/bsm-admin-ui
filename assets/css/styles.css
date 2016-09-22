@@ -1,5 +1,27 @@
+/*Modal code source based on that of Kyle Mitofsky https://jsfiddle.net/KyleMit/0fscmf3L/*/
+.modal-body .form-horizontal .col-sm-2,
+.modal-body .form-horizontal .col-sm-10 {
+    width: 100%
+}
 
+.modal-body .form-horizontal .control-label {
+    text-align: left;
+}
+.modal-body .form-horizontal .col-sm-offset-2 {
+    margin-left: 15px;
+}
 
+/* End of Kyle Mitofsky's code*/
+
+#edges-textbox{
+  width:75%;
+  height:125px;
+}
+
+#attributes-textbox{
+  width:75%;
+  height:125px;
+}
 
 /*************OLD CODE BELOW*****************/
 .btn-group-left{
