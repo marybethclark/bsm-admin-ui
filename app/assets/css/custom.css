@@ -1,0 +1,126 @@
+body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+
+  .logo {
+    max-width: 100%;
+    height: auto;
+}
+
+.logo {
+    vertical-align: middle;
+}
+img {
+    border: 0;
+    padding: 10px;
+}
+
+/*/////////////////  SCROLLBAR NOT WORKING?  /////////////////////////////*/
+.scroll{
+  height:100px;
+  overflow-y:auto;
+}
+
+.btnSaveCancel{
+  display: inline-block;
+}
+
+  tbody {
+    padding-left: 30px;
+  }
+
+.textBoxSize{
+  height:100px;
+}
+
+#edges-textbox{
+  width:75%;
+  height:125px;
+}
+
+#attributes-textbox{
+  width:75%;
+  height:125px;
+}
+
+.btn-group-left{
+    display: inline;
+}
+
+.btn-group-right{
+  display: inline;
+  float: right;
+}
+
+.btn{
+  box-shadow: .5px .5px .5px #888888;
+  border: solid grey;
+  border-width: 1px;
+  border-radius: 5px;
+}
+
+.button-caption{
+  color:#222;
+  text-shadow:#fff 0 1px 0;
+  font-size: 11px;
+  font-weight: bold;
+  line-height: 16px;
+}
+
+#panel-heading-name{
+  display:inline-block;
+  width:67%;
+}
+
+#panel-heading-links{
+  display:inline-block;
+}
+
+#panel-heading-editDelete{
+  display:inline-block;
+  /*text-align: right;*/
+}
+
+#name{
+  list-style: none;
+  display:inline-block;
+  width:67%;
+}
+
+#links{
+  list-style: none;
+  display:inline-block;
+  color:green;
+}
+
+a{
+  text-decoration: none;
+  color:#4c9d29 !important;
+}
+
+a:link {
+}
+
+a:hover {
+  color:#196AC0;
+  text-decoration: underline;
+  /*font-weight: bold;*/
+}
+
+.breadcrumbNav{
+  display:inline;
+  font-size: 12px !important;
+  font-weight: bold;
+}
+
+.header{
+  background-color: #4c9d29 !important;
+  color:white;
+
+}
+
+
+#edit-delete{
+  list-style: none;
+  display:inline-block;
+}

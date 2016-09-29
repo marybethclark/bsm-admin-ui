@@ -1,0 +1,71 @@
+<!-- <p>This was the partial for view 2.</p>
+
+  Showing of 'interpolate' filter:
+  {{ 'Current version is v%VERSION%.' | interpolate }}
+</p> -->
+<img id="logo" src="assets/images/horizon_logo.svg" alt="OpenNMS">
+
+<ul>
+  <li class='breadcrumbNav'>
+    <a href="#!/view1">Business Services ></a></li>
+  <li class='breadcrumbNav'>
+  <a href="#!/view2">Business Service Edit ></a></li>
+  <li class='breadcrumbNav'>
+  Business Service Edge Edit ></li>
+</ul>
+
+
+    <!-- **********  BUSINESS SERVICE EDGE EDIT TABLE BEGINS HERE -->
+    <!-- ******************************************************* -->
+<div class="container-fluid">
+    <div class="row">  <!-- Table goes in this row -->
+      <div class="col-md-12">
+       <table class="table table-striped table-bordered">
+        <thead>
+            <tr class="header"><!-- TABLE HEADER ROW -->
+            <th class="col-md-3">BUSINESS SERVICE EDGE EDIT</th> <!-- TABLE HEADER CELLS -->
+            <th class="col-md-2">TYPE</th>
+            <th class="col-md-2">CHILD SERVICE</th>
+            <th class="col-md-1">MAP FUNCTION</th>
+            <th class="col-md-1">SEVERITY</th>
+            <th class="col-md-1">WEIGHT</th>
+            <th class="col-md-1">SAVE / CANCEL</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr><!-- TABLE ROW -->
+            <td>Child:B2, Map</td>
+            <td><select class="form-control">
+              <option>Child Service</option>
+              <option>IP Service</option>
+              <option>Reduction Key</option>
+            </select></td>
+            <td><select class="form-control">
+              <option>B2</option>
+              <option>B3</option>
+              <option>WWWI</option>
+            </select></td>
+            <td><select class="form-control">
+              <option>Decrease</option>
+              <option>Identity</option>
+              <option>Ignore</option>
+              <option>SetTo</option>
+            </select></td>
+            <td><select class="form-control">
+              <option>Critical</option>
+              <option>Major</option>
+              <option>Minor</option>
+              <option>Warning</option>
+              <option>Normal</option>
+              <option>Intermediate</option>
+            </select></td>
+              <td> <input type="number" class="form-control" placeholder="weight"></td>
+            <td><button type="button" class="btn btn-default">SAVE</button>
+            <button type="button" class="btn btn-default">CANCEL</button></td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+</div>
