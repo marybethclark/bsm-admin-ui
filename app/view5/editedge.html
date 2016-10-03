@@ -3,21 +3,21 @@
 <ul>
   <li class='breadcrumbNav'><a href="#!/managebusinessservices">Manage Business Services ></a></li>
   <li class='breadcrumbNav'><a href="#!/editbusinessservice">Edit Business Service ></a></li>
-  <li class='breadcrumbNav'>Add Edge</li>
+  <li class='breadcrumbNav'>Edit Edge</li>
 </ul>
 
 <div class="container-fluid">
 <div class="col-md-6">
-<!-- <form> -->
+<form>
 
 <div class="form-group">
-    <label for="businessServiceName">Business Service Name</label>
-    <input type="text" id="businessServiceName" class="form-control" placeholder="name of bus service will appear here">
+  <label for="businessServiceName">Business Service Name</label>
+  <input type="text" id="businessServiceName" class="form-control" placeholder="name of bus service will appear here">
 </div>
-
 
 <!-- ******************  is below where I add the form tag? ******************* -->
 <form action="/" method="post">
+
 
 <div class="form-group">
   <label for="type" id="type">Type</label>
@@ -30,35 +30,16 @@
 </div>
 
 <div class="form-group">
-   <label for="childService">Child Service</label>
-   <input type="text" id="childService">
-   <select class="form-control"  placeholder="no child service selected">
-    <option>{{ B2 }}</option>
-    <option>{{ www3 }}</option>
+  <label for="childService" id="childService">Child Service</label>
+   <!-- <input type="text" id="childService"> -->
+   <select class="form-control" >
+    <option>www</option>
+    <option>B2</option>
   </select>
 </div>
 
 <div class="form-group">
-   <label for="ipService">IP Service</label>
-   <input type="text" id="ipService">
-   <select class="form-control"  placeholder="no IP service selected">
-    <option>{{ data }}</option>
-    <option>{{ data }}</option>
-  </select>
-</div>
-
-<div class="form-group">
-    <label for="reductionKey">Reduction Key <label></label></label>
-    <input type="text" id="reductionKey" class="form-control">
-</div>
-
-<div class="form-group">
-    <label for="friendlyName">Friendly Name</label>
-    <input type="text" id="friendlyName" class="form-control">
-</div>
-
-<div class="form-group">
-  <label for="mapFunction" id="mapFunction">Map Function</label>
+  <label for="mapFunction" id='mapFunction'>Map Function</label>
     <!--************ DOES mapFunction need an id?? ******************* -->
    <select class="form-control">
       <option>Decrease</option>
@@ -66,7 +47,7 @@
       <option>Ignore</option>
       <option>SetTo</option>
       <!-- Selecting the SetTo option activates the Severity dropdown menu -->
-   </select>
+    </select>
 </div>
 
 <div class="form-group">
@@ -79,21 +60,23 @@
       <option>Warning</option>
       <option>Normal</option>
       <option>Intermediate</option>
-    </select>
+   </select>
 </div>
 
 <div class="form-group">
     <label for="weight">Weight</label>
     <input type="text" id="weight" class="form-control" placeholder="1">
 </div>
+</form>
 
 <div></div>
 <div class="btn-group" role="group" aria-label="...">
- <!-- <button type="submit" class="btn btn-default btn-lg btnSaveCancel">ADD EDGE</button> -->
- <!-- **********   Or should it be <input type="submit", BELOW for better browser compatibility? -->
-  <input type="submit" value="ADD EDGE" class="btn btn-default btn-lg btnSaveCancel">
+ <!-- <button type="button" class="btn btn-default btn-lg btnSaveCancel">UPDATE EDGE</button> -->
+  <!-- **********   Or should it be <input type="submit", BELOW for better browser compatibility? -->
 
-  <button type="button" class="btn btn-default btn-lg"><a href="#!/managebusinessservices">CANCEL</a></button>
+<input type="submit" value="UPDATE EDGE" class="btn btn-default btn-lg btnSaveCancel">
+
+ <button type="button" class="btn btn-default btn-lg"><a href="#!/managebusinessservices">CANCEL</a></button>
 </div>
  <!-- ************   Is this where to close the form tag?  ***************-->
 </form>

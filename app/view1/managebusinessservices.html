@@ -3,7 +3,7 @@
 <!-- **********  BUSINESS SERVICE EDIT TABLE BEGINS HERE -->
 <!-- ******************************************************* -->
 <div class="container-fluid">
-<div ng-controller="View1Ctrl">
+<div ng-controller="manageBusinessServicesCtrl">
  <div class="row"><!-- Header buttons go in this row -->
 
   <div class="col-md-8">
@@ -38,7 +38,7 @@
           <!--********  businessService and businessServices are variables that you make up  -->
           <td>{{businessService.name}}</td>
           <td><a href=# target="_blank"><span class="View-in-topology"><i class="fa fa-external-link-square" aria-hidden="true"></i>View in Topology UI</span></a></td>
-          <td><a href="#!/view2"><button type="button" class="btn btn-default"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
+          <td><a href="#!/editbusinessservice"><button type="button" class="btn btn-default"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
           <button type="button" class="btn btn-default"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</button></td>
         </tr>
       </tbody>

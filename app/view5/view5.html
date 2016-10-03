@@ -1,8 +1,8 @@
 <img id="logo" src="assets/images/horizon_logo.svg" alt="OpenNMS">
 
 <ul>
-  <li class='breadcrumbNav'><a href="#!/view1">Business Services ></a></li>
-  <li class='breadcrumbNav'><a href="#!/view2">Business Service Edit ></a></li>
+  <li class='breadcrumbNav'><a href="#!/view1">Manage Business Services ></a></li>
+  <li class='breadcrumbNav'><a href="#!/view2">Edit Business Service ></a></li>
   <li class='breadcrumbNav'>Edit Edge</li>
 </ul>
 
@@ -14,6 +14,10 @@
   <label for="businessServiceName">Business Service Name</label>
   <input type="text" id="businessServiceName" class="form-control" placeholder="name of bus service will appear here">
 </div>
+
+<!-- ******************  is below where I add the form tag? ******************* -->
+<form action="/" method="post">
+
 
 <div class="form-group">
   <label for="type" id="type">Type</label>
@@ -67,9 +71,14 @@
 
 <div></div>
 <div class="btn-group" role="group" aria-label="...">
- <button type="button" class="btn btn-default btn-lg btnSaveCancel">UPDATE EDGE</button>
+ <!-- <button type="button" class="btn btn-default btn-lg btnSaveCancel">UPDATE EDGE</button> -->
+  <!-- **********   Or should it be <input type="submit", BELOW for better browser compatibility? -->
+
+<input type="submit" value="UPDATE EDGE" class="btn btn-default btn-lg btnSaveCancel">
+
  <button type="button" class="btn btn-default btn-lg"><a href="#!/view1">CANCEL</a></button>
 </div>
+ <!-- ************   Is this where to close the form tag?  ***************-->
 </form>
 </div>
 </div><!-- Closes container -->
