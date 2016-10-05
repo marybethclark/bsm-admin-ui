@@ -6,42 +6,45 @@
 </ul>
 
 <div class="container-fluid">
+  <!-- ***********  added controller below ****************** -->
+  <div ng-controller="editBusinessServiceCtrl">
   <div class="col-md-6">
-  <!-- <form> -->
+   <form action="/" method="post">
     <div class="form-group">
           <label for="businessServiceName">Business Service Name</label>
           <input type="text" id="businessServiceName" class="form-control" placeholder="name of bus service will appear here">
     </div>
 
-<!-- ******************  is below where I add the form tag? ******************* -->
-     <form action="/" method="post">
         <div class="form-group">
-        <label for="reductionFunction" id="reductionFunction">Reduction Function</label>
+        <label for="reduceFunction" id="reduceFunction">Reduce Function</label>
   <!-- ******* Does this input NEED an id?? **************************** -->
-        <select class="form-control">
-          <option>Highest Severity</option>
-          <option>Threshold</option>
-          <option>Highest Severity Above</option>
-          <option>Exponential Propagation</option>
+        <select class="form-control"  ng-model="pullDownOption">
+          <option value= " ">select one</option>
+          <option value= "highestseverity">HighestSeverity</option>
+          <option value= "threshold">Threshold</option>
+          <option value= "highestseverityabove">HighestSeverityAbove</option>
+          <option value= "exponentialpropagation">ExponentialPropagation</option>
         </select>
       </div>
 
-<!-- <div class="form-group">
+    <div class="form-group" ng-show="(pullDownOption == 'threshold')" ng-hide="(pullDownOption == 'highestseverity')">
       <label for="thresholdTextBox">Threshold</label>
       <input type="text" id="thresholdTextBox" class="form-control" placeholder="threshold number will appear here">
     </div>
 
-   <select class="form-control">
-    <option>Indeterminate</option>
-    <option>Normal</option>
-    <option>Warning</option>
-    <option>Minor</option>
-    <option>Major</option>
-    <option>Critical</option>
-  </select>
-</div> -->
+    <div class="form-group" ng-show="(pullDownOption == 'highestseverityabove')" ng-hide="(pullDownOption == 'highestseverity'),(pullDownOption == 'threshold')">
+     <label for="reduceFunction" id="reduceFunction">Threshold</label>
+     <select class="form-control">
+     <option>Indeterminate</option>
+     <option>Normal</option>
+     <option>Warning</option>
+     <option>Minor</option>
+     <option>Major</option>
+     <option>Critical</option>
+   </select>
+  </div>
 
-        <div class="form-group">
+        <div class="form-group" ng-show="(pullDownOption == 'exponentialpropagation')">
           <label for="base">Base</label>
           <input type="text" id="base" class="form-control" placeholder="base number will appear here">
         </div>
@@ -69,12 +72,13 @@
       </div>
 
       <div></div>
-      
+
       <div class="btn-group" role="group" aria-label="...">
-        <button type="button" class="btn btn-default btn-lg btnSaveCancel">SAVE</button>
-        <button type="button" class="btn btn-default btn-lg"><a href="#!/managebusinessservices">CANCEL</a></button>
+        <button type="button" class="btn btn-default btn-med btnSaveCancel">SAVE</button>
+        <button type="button" class="btn btn-default btn-med"><a href="#!/managebusinessservices">CANCEL</a></button>
     </div>
- <!-- ************   Is this where to close the form tag?  ***************-->
    </form>
  </div>
+</div>
+</div>
 </div><!-- Closes container
