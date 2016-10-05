@@ -19,7 +19,7 @@
         <label for="reduceFunction" id="reduceFunction">Reduce Function</label>
   <!-- ******* Does this input NEED an id?? **************************** -->
         <select class="form-control"  ng-model="pullDownOption">
-          <option value= " ">select one</option>
+          <option value= " "></option>
           <option value= "highestseverity">HighestSeverity</option>
           <option value= "threshold">Threshold</option>
           <option value= "highestseverityabove">HighestSeverityAbove</option>
@@ -27,7 +27,7 @@
         </select>
       </div>
 
-    <div class="form-group" ng-show="(pullDownOption == 'threshold')" ng-hide="(pullDownOption == 'highestseverity')">
+    <div class="form-group" ng-show="(pullDownOption == 'threshold')" ng-hide="(pullDownOption == 'highestseverity'), (pullDownOption == '')">
       <label for="thresholdTextBox">Threshold</label>
       <input type="text" id="thresholdTextBox" class="form-control" placeholder="threshold number will appear here">
     </div>
