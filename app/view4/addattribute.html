@@ -1,43 +1,40 @@
 <img id="logo" src="assets/images/horizon_logo.svg" alt="OpenNMS">
 
-  <ul>
+<ul>
     <li class='breadcrumbNav'><a href="#!/managebusinessservices">Manage Business Services ></a></li>
     <li class='breadcrumbNav'><a href="#!/editbusinessservice">Edit Business Service ></a></li>
     <li class='breadcrumbNav'>Add Attribute</li>
-  </ul>
+</ul>
 
-  <div class="container-fluid">
+<div class="container-fluid">
     <div class="col-md-6">
-<!-- <form> -->
+        <form action="/" method="post">
 
-      <div class="form-group">
-        <label for="businessServiceName">Business Service Name</label>
-        <input type="text" id="businessServiceName" class="form-control" placeholder="name of bus service will appear here">
-      </div>
+            <div class="form-group">
+                <label for="businessServiceName">Business Service Name</label>
+                <input type="text" id="businessServiceName" class="form-control" placeholder="name of bus service will appear here">
+            </div>
 
- <!-- ******************  is below where I add the form tag? ******************* -->
-      <form action="/" method="post">
+            <div class="form-group" ng-class="notEmpty == undefined ? 'has-error' : 'has-success'">
+                <label for="key">Key<mark class='red'> * <i class="fa fa-exclamation-circle" aria-hidden="true"></i></mark></label>
+                <input type="text" ng-model="notEmpty" id="key" class="form-control" placeholder="Key must not be empty">
+            </div>
 
-      <div class="form-group">
-        <label for="key">Key</label>
-        <input type="text" id="key" class="form-control">
-      </div>
+            <div class="form-group">
+                <label for="value">Value</label>
+                <input type="text" id="value" class="form-control">
+            </div>
 
-      <div class="form-group">
-        <label for="value">Value</label>
-        <input type="text" id="value" class="form-control">
-      </div>
+            <div></div>
+            <div class="btn-group" role="group" aria-label="...">
+                <!-- <button type="button" class="btn btn-default btn-lg btnSaveCancel">ADD ATTRIBUTE</button> -->
+                <!-- **********   Or should it be <input type="submit", BELOW for better browser compatibility? -->
 
-      <div></div>
-      <div class="btn-group" role="group" aria-label="...">
- <!-- <button type="button" class="btn btn-default btn-lg btnSaveCancel">ADD ATTRIBUTE</button> -->
- <!-- **********   Or should it be <input type="submit", BELOW for better browser compatibility? -->
+                <input type="submit" value="ADD ATTRIBUTE" class="btn btn-default btn-success btnSaveCancel">
 
-        <input type="submit" value="ADD ATTRIBUTE" class="btn btn-default btn-lg btnSaveCancel">
-
-        <button type="button" class="btn btn-default btn-lg"><a href="#!/managebusinessservices">CANCEL</a></button>
-      </div>
- <!-- ************   Is this where to close the form tag?  ***************-->
-    </form>
-  </div>
-</div><!-- Closes container -->
+                <button type="button" class="btn btn-default"><a href="#!/editbusinessservice">CANCEL</a></button>
+            </div>
+        </form>
+    </div>
+</div>
+<!-- Closes container -->
