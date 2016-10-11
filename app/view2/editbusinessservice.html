@@ -1,84 +1,88 @@
 <img id="logo" src="assets/images/horizon_logo.svg" alt="OpenNMS">
 
 <ul>
-  <li class='breadcrumbNav'><a href="#!/managebusinessservices">Manage Business Services ></a></li>
-  <li class='breadcrumbNav'>Edit Business Service</li>
+    <li class='breadcrumbNav'><a href="#!/managebusinessservices">Manage Business Services ></a></li>
+    <li class='breadcrumbNav'>Edit Business Service</li>
 </ul>
 
 <div class="container-fluid">
-  <!-- ***********  added controller below ****************** -->
-  <div ng-controller="editBusinessServiceCtrl">
-  <div class="col-md-6">
-   <form action="/" method="post">
-    <div class="form-group">
-          <label for="businessServiceName">Business Service Name</label>
-          <input type="text" id="businessServiceName" class="form-control" placeholder="name of bus service will appear here">
-    </div>
+    <!-- ***********  added controller below ****************** -->
+    <div ng-controller="editBusinessServiceCtrl">
+        <div class="col-md-6">
+            <form action="/" method="post">
 
-        <div class="form-group">
-        <label for="reduceFunction" id="reduceFunction">Reduce Function</label>
-  <!-- ******* Does this input NEED an id?? **************************** -->
-        <select class="form-control"  ng-model="pullDownOption">
-          <option value= " "></option>
-          <option value= "highestseverity">HighestSeverity</option>
-          <option value= "threshold">Threshold</option>
-          <option value= "highestseverityabove">HighestSeverityAbove</option>
-          <option value= "exponentialpropagation">ExponentialPropagation</option>
-        </select>
-      </div>
+                <div class="form-group">
+                    <label for="businessServiceName">Business Service Name <mark class='red'> *</mark></label>
+                    <input type="text" id="businessServiceName" class="form-control" placeholder="name of bus service will appear here">
+                </div>
 
-    <div class="form-group" ng-show="(pullDownOption == 'threshold')" ng-hide="(pullDownOption == 'highestseverity'), (pullDownOption == '')">
-      <label for="thresholdTextBox">Threshold</label>
-      <input type="text" id="thresholdTextBox" class="form-control" placeholder="threshold number will appear here">
-    </div>
+                <div class="form-group">
+                    <label for="reduceFunction" id="reduceFunction">Reduce Function</label>
+                    <!-- ******* Does this input NEED an id?? **************************** -->
+                    <select class="form-control" ng-model="pullDownOption">
+                      <option value= " "></option>
+                      <option value= "highestseverity">HighestSeverity</option>
+                      <option value= "threshold">Threshold</option>
+                      <option value= "highestseverityabove">HighestSeverityAbove</option>
+                      <option value= "exponentialpropagation">ExponentialPropagation</option>
+                    </select>
+                </div>
 
-    <div class="form-group" ng-show="(pullDownOption == 'highestseverityabove')" ng-hide="(pullDownOption == 'highestseverity'),(pullDownOption == 'threshold')">
-     <label for="reduceFunction" id="reduceFunction">Threshold</label>
-     <select class="form-control">
-     <option>Indeterminate</option>
-     <option>Normal</option>
-     <option>Warning</option>
-     <option>Minor</option>
-     <option>Major</option>
-     <option>Critical</option>
-   </select>
-  </div>
+                <!-- <div class="form-group" ng-show="(pullDownOption == 'threshold')" ng-hide="(pullDownOption == 'highestseverity') (pullDownOption == '')">
+    </div> -->
+                <div class="form-group" ng-show="(pullDownOption == 'threshold')" ng-hide="(pullDownOption == 'highestseverity') (pullDownOption == '')" ng-class="tooLow >0 ? 'has-success' : 'has-error'">
+                    <label for="thresholdTextBox">Threshold <mark class='red'> * <i class="fa fa-exclamation-circle" aria-hidden="true"></i></mark></label>
+                    <input type="text" ng-Model="tooLow" id="thresholdTextBox" class="form-control" placeholder="Threshold must be a positive number.">
+                </div>
 
-        <div class="form-group" ng-show="(pullDownOption == 'exponentialpropagation')">
-          <label for="base">Base</label>
-          <input type="text" id="base" class="form-control" placeholder="base number will appear here">
+                <div class="form-group" ng-show="(pullDownOption == 'highestseverityabove')" ng-hide="(pullDownOption == 'highestseverity') (pullDownOption == 'threshold')">
+                    <label for="reduceFunction" id="reduceFunction">Threshold <mark class='red'> * </mark></label>
+                    <select class="form-control">
+                      <option>Indeterminate</option>
+                      <option>Normal</option>
+                      <option>Warning</option>
+                      <option>Minor</option>
+                      <option>Major</option>
+                      <option>Critical</option>
+                    </select>
+                </div>
+
+                <div class="form-group" ng-class="greaterThanOne >1 ? 'has-success' : 'has-error'" ng-show="(pullDownOption == 'exponentialpropagation')">
+                    <label for="base">Base <mark class='red'> * </mark></label>
+                    <input type="text" ng-Model="greaterThanOne" id="base" class="form-control" placeholder="Base must be greater than 1.0">
+                </div>
+
+                <div class="form-group">
+                    <label for="edges">Edges</label>
+                    <input type="text" id="edges" class="form-control scroll" placeholder="Edge keys/values will appear here">
+                </div>
+
+                <div class="btn-group" role="group" aria-label="...">
+                    <button type="button" class="btn btn-default"><i class="fa fa-plus-square" aria-hidden="true"></i><a href="#!/addedge"> Add Edge</a></button>
+                    <button type="button" class="btn btn-default"><i class="fa fa-pencil-square-o" aria-hidden="true"></i><a href="#!/editedge"> Edit Edge</a></button>
+                    <button type="button" class="btn btn-default"><i class="fa fa-trash-o" aria-hidden="true"></i> Remove Edge</button>
+                </div>
+
+                <div class="form-group">
+                    <label for="attributes">Attributes</label>
+                    <input type="text" id="attributes" class="form-control scroll" placeholder="attribute values will appear here">
+                </div>
+
+                <div class="btn-group" role="group" aria-label="...">
+                    <button type="button" class="btn btn-default"><i class="fa fa-plus-square" aria-hidden="true"></i><a href="#!/addattribute"> Add Attribute</a></button>
+                    <button type="button" class="btn btn-default"><i class="fa fa-pencil-square-o" aria-hidden="true"></i><a href="#!/editattribute"> Edit Attribute</a></button>
+                    <button type="button" class="btn btn-default"><i class="fa fa-trash-o" aria-hidden="true"></i> Remove Attribute</button>
+                </div>
+
+                <div></div>
+
+                <div class="btn-group" role="group" aria-label="...">
+                    <button type="button" class="btn btn-default btn-success btnSaveCancel">SAVE</button>
+                    <button type="button" class="btn btn-default"><a href="#!/managebusinessservices">CANCEL</a></button>
+                </div>
+            </form>
         </div>
-
-        <div class="form-group">
-          <label for="edges">Edges</label>
-          <input type="text" id="edges" class="form-control scroll" placeholder="Edge keys/values will appear here">
-        </div>
-
-        <div class="btn-group" role="group" aria-label="...">
-          <button type="button" class="btn btn-default"><i class="fa fa-plus-square" aria-hidden="true"></i><a href="#!/addedge"> Add Edge</a></button>
-          <button type="button" class="btn btn-default"><i class="fa fa-pencil-square-o" aria-hidden="true"></i><a href="#!/editedge"> Edit Edge</a></button>
-          <button type="button" class="btn btn-default"><i class="fa fa-trash-o" aria-hidden="true"></i> Remove Edge</button>
-        </div>
-
-      <div class="form-group">
-        <label for="attributes">Attributes</label>
-        <input type="text" id="attributes" class="form-control scroll" placeholder="attribute values will appear here">
     </div>
-
-      <div class="btn-group" role="group" aria-label="...">
-        <button type="button" class="btn btn-default"><i class="fa fa-plus-square" aria-hidden="true"></i><a href="#!/addattribute"> Add Attribute</a></button>
-        <button type="button" class="btn btn-default"><i class="fa fa-pencil-square-o" aria-hidden="true"></i><a href="#!/editattribute"> Edit Attribute</a></button>
-        <button type="button" class="btn btn-default"><i class="fa fa-trash-o" aria-hidden="true"></i> Remove Attribute</button>
-      </div>
-
-      <div></div>
-
-      <div class="btn-group" role="group" aria-label="...">
-        <button type="button" class="btn btn-default btn-med btnSaveCancel">SAVE</button>
-        <button type="button" class="btn btn-default btn-med"><a href="#!/managebusinessservices">CANCEL</a></button>
-    </div>
-   </form>
- </div>
 </div>
 </div>
-</div><!-- Closes container
+<!-- Closes container
