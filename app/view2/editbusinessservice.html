@@ -6,37 +6,46 @@
 </ul>
 
 <div class="container-fluid">
-    <!-- ***********  added controller below ****************** -->
     <div ng-controller="editBusinessServiceCtrl">
         <div class="col-md-6">
-            <form action="/" method="post">
-
+            <form name="editBusinessServiceForm" ng-submit="submitForm(editBusinessServiceForm.$valid)" novalidate>
+                <!-- novalidate prevents HTML5 validation  Angular's version is nicer-->
+                <!-- code that was supplied for form element above with SEED template: action="/" method="post" -->
                 <div class="form-group">
                     <label for="businessServiceName">Business Service Name <mark class='red'> *</mark></label>
-                    <input type="text" id="businessServiceName" class="form-control" placeholder="name of bus service will appear here">
+                    <input type="text" id="businessServiceName" class="form-control" placeholder="name of business service will appear here">
                 </div>
 
                 <div class="form-group">
                     <label for="reduceFunction" id="reduceFunction">Reduce Function</label>
                     <!-- ******* Does this input NEED an id?? **************************** -->
-                    <select class="form-control" ng-model="pullDownOption">
-                      <option value= " "></option>
-                      <option value= "highestseverity">HighestSeverity</option>
-                      <option value= "threshold">Threshold</option>
-                      <option value= "highestseverityabove">HighestSeverityAbove</option>
-                      <option value= "exponentialpropagation">ExponentialPropagation</option>
+                    <!-- <select class="form-control" ng-model="pullDownOption" ng-options="option for option in reduceFunctionOptions">
                     </select>
+                00000000 WORKING CODE BELOW  0000000000000000  -->
+                    <select class="form-control" ng-model="pullDownOption">
+                  <!-- <option value= " "></option> -->
+                  <option value= "highestseverity">HighestSeverity</option>
+                  <option value= "threshold">Threshold</option>
+                  <option value= "highestseverityabove">HighestSeverityAbove</option>
+                  <option value= "exponentialpropagation">ExponentialPropagation</option>
+                </select>
                 </div>
 
-                <!-- <div class="form-group" ng-show="(pullDownOption == 'threshold')" ng-hide="(pullDownOption == 'highestseverity') (pullDownOption == '')">
-    </div> -->
-                <div class="form-group" ng-show="(pullDownOption == 'threshold')" ng-hide="(pullDownOption == 'highestseverity') (pullDownOption == '')" ng-class="tooLow >0 ? 'has-success' : 'has-error'">
-                    <label for="thresholdTextBox">Threshold <mark class='red'> * <i class="fa fa-exclamation-circle" aria-hidden="true"></i></mark></label>
-                    <input type="text" ng-Model="tooLow" id="thresholdTextBox" class="form-control" placeholder="Threshold must be a positive number.">
+                <div class="form-group" ng-if="(pullDownOption == 'threshold')" ng-class="{'has-error' :editBusinessServiceForm.threshold.$invalid && !editBusinessServiceForm.threshold.$pristine}">
+
+  <!-- ng-if="(pullDownOption == 'threshold')"  -->
+                    <!-- previous code for visibility: ng-show="(pullDownOption == 'threshold')" ng-hide="(pullDownOption !== 'threshold')"
+                  previous code for input validation:
+                   ng-class="(tooLow > 0 && tooLow <= 1)  ? 'has-success' : 'has-error' " -->
+                    <label>Threshold<mark class='red'> * </mark></label>
+                    <input type="number" name='threshold' min="1"  nnks-only-number    ng-model='thresholdValue' allow-decimal="false"
+                    allow-negative="false" class="form-control" required>
+                    <p ng-show='editBusinessServiceForm.threshold.$invalid && !editBusinessServiceForm.threshold.$pristine' class='help-block'>Threshold is required. (greater than zero, less than or equal to one)</p>
+                    <!-- <input required type="text" ng-Model="tooLow" id="thresholdTextBox" class="form-control" placeholder="Threshold must be greater than zero and less than or equal to one."> -->
                 </div>
 
-                <div class="form-group" ng-show="(pullDownOption == 'highestseverityabove')" ng-hide="(pullDownOption == 'highestseverity') (pullDownOption == 'threshold')">
-                    <label for="reduceFunction" id="reduceFunction">Threshold <mark class='red'> * </mark></label>
+                <div class="form-group" ng-show="(pullDownOption == 'highestseverityabove')" ng-hide="(pullDownOption !== 'highestseverityabove')">
+                    <label for="reducefunction" id="reducefunction">Threshold <mark class='red'> * </mark></label>
                     <select class="form-control">
                       <option>Indeterminate</option>
                       <option>Normal</option>
@@ -47,9 +56,14 @@
                     </select>
                 </div>
 
-                <div class="form-group" ng-class="greaterThanOne >1 ? 'has-success' : 'has-error'" ng-show="(pullDownOption == 'exponentialpropagation')">
-                    <label for="base">Base <mark class='red'> * </mark></label>
-                    <input type="text" ng-Model="greaterThanOne" id="base" class="form-control" placeholder="Base must be greater than 1.0">
+                <div class="form-group" ng-if="(pullDownOption == 'exponentialpropagation')" ng-class="{'has-error' :editBusinessServiceForm.base.$invalid && !editBusinessServiceForm.base.$pristine}">
+                    <label>Base<mark class='red'> * </mark></label>
+                    <input type="number" name='base' min="1" nks-only-number ng-model='baseEntered' allow-decimal="false" allow-negative="false" class="form-control" required>
+                    <p ng-show='editBusinessServiceForm.base.$invalid  && !editBusinessServiceForm.base.$pristine' class='help-block'>Base is required. (must be greater than one)</p>
+                </div>
+<!--  previous code for visibility:  ng-class="greaterThanOne >1 ? 'has-success' : 'has-error'" ng-show="(pullDownOption == 'exponentialpropagation')" -->
+                    <!-- <label for="base">Base <mark class='red'> * </mark></label>
+                    <input type="text" ng-Model="greaterThanOne" id="base" class="form-control" placeholder="Base must be greater than 1.0"> -->
                 </div>
 
                 <div class="form-group">
@@ -74,15 +88,12 @@
                     <button type="button" class="btn btn-default"><i class="fa fa-trash-o" aria-hidden="true"></i> Remove Attribute</button>
                 </div>
 
-                <div></div>
-
                 <div class="btn-group" role="group" aria-label="...">
-                    <button type="button" class="btn btn-default btn-success btnSaveCancel">SAVE</button>
+                    <input type="submit" value="SAVE" class="btn btn-default btn-success btnSaveCancel" ng-disabled='editBusinessServiceForm.$invalid'>
                     <button type="button" class="btn btn-default"><a href="#!/managebusinessservices">CANCEL</a></button>
                 </div>
             </form>
         </div>
     </div>
-</div>
 </div>
 <!-- Closes container
