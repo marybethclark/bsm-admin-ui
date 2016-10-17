@@ -15,6 +15,13 @@ img {
     padding: 10px;
 }
 
+mark.red{
+  color:#ff0000;
+  background: none;
+}
+
+
+
 /*/////////////////  SCROLLBAR NOT WORKING?  /////////////////////////////*/
 .scroll{
   height:100px;
@@ -57,6 +64,10 @@ img {
   border: solid grey;
   border-width: 1px;
   border-radius: 5px;
+}
+
+.btn-med{
+  height:2.5em;
 }
 
 .button-caption{

@@ -11,18 +11,23 @@
     <div class="col-md-6">
         <form name="addAttributeForm" ng-submit="submitForm(addAttributeForm.$valid)" novalidate>
             <!-- novalidate prevents HTML5 validation  We'll do it better w/ ANgular-->
+
+
+<!-- *********  Business Service Name TEXTBOX  ********* -->
             <div class="form-group">
                 <label for="businessServiceName">Business Service Name</label>
                 <input type="text" id="businessServiceName" class="form-control" placeholder="name of business service will appear here">
             </div>
 
+<!-- *********  Key TEXTBOX  ********* -->
             <div class="form-group" ng-class="{'has-error' : addAttributeForm.key.$invalid && !addAttributeForm.weight.$pristine}">
               <!-- Previously working code: ng-class="notEmpty == undefined ? 'has-error' : 'has-success'" -->
                 <label for='Key' id="key">Key<mark class='red'> * </mark></label>
-                <input type="text" name='key'ng-model="notEmpty" class="form-control"  required>
+                <input type="text" name='key'ng-model="notEmpty" class="form-control" required>
                   <p ng-show='addAttributeForm.key.$invalid  && !addAttributeForm.key.$pristine' class='help-block'>Key must not be empty.</p>
             </div>
 
+<!-- *********  Value TEXTBOX  ********* -->
             <div class="form-group">
                 <label for="value">Value</label>
                 <input type="text" id="value" class="form-control">

@@ -1,82 +1,107 @@
 <img id="logo" src="assets/images/horizon_logo.svg" alt="OpenNMS">
 
-  <ul>
+<ul>
     <li class='breadcrumbNav'><a href="#!/managebusinessservices">Manage Business Services ></a></li>
     <li class='breadcrumbNav'><a href="#!/editbusinessservice">Edit Business Service ></a></li>
     <li class='breadcrumbNav'>Edit Edge</li>
-  </ul>
+</ul>
 
-  <div class="container-fluid">
-      <div class="col-md-6">
-        <!-- <form> -->
+<div class="container-fluid">
+    <div ng-controller="editEdgeCtrl">
+        <div class="col-md-6">
+            <form name="editEdgeForm" ng-submit="submitForm(editEdgeForm.$valid)" novalidate>
+                <!-- novalidate prevents HTML5 validation  We'll do it better w/ ANgular-->
 
-          <div class="form-group">
-            <label for="businessServiceName">Business Service Name</label>
-            <input type="text" id="businessServiceName" class="form-control" placeholder="name of bus service will appear here">
-          </div>
+<!-- *********  Business Service Name TEXTBOX  ********* -->
+                <div class="form-group">
+                    <label for="businessServiceName">Business Service Name</label>
+                    <input type="text" name="businessServiceName" id="businessServiceName" class="form-control" placeholder="name of business service will appear here">
+                </div>
 
-<!-- ******************  is below where I add the form tag? ******************* -->
-        <form action="/" method="post">
+<!-- *********  Type DROPDOWN MENU  ********* -->
+                <div class="form-group" ng-class="{'has-error' : editEdgeForm.type.$invalid }">
+                    <label for="type" id="type">Type <mark class='red'> * </mark></label>
+                    <select name="type" class="form-control" ng-model="pullDownOption" required>
+                  <option value= "childservice">Child Service</option>
+                  <option value= "ipservice">IP Service</option>
+                  <option value= "reductionkey">Reduction Key</option>
+                </select>
+                    <p ng-show="editEdgeForm.type.$invalid" class="help-block">Type is required.</p>
+                </div>
 
-          <div class="form-group">
-            <label for="type" id="type">Type</label>
-  <!--************ DOES type need an id?? ******************* -->
-            <select class="form-control">
-              <option>Child Service</option>
-              <option>IP Service</option>
-              <option>Reduction Key</option>
-            </select>
-          </div>
+<!-- *********  Child Service DROPDOWN MENU  ********* -->
+                <div class="form-group" ng-if="(pullDownOption == 'childservice')" ng-class="{'has-error' :editEdgeForm.childservice.$invalid}">
+                    <label for="childService" id="childService">Child Service<mark class='red'> * </mark></label>
+                    <select name='childservice' class="form-control" ng-model="ChildServicePullDownOption" ng-minlength="1" required>
+                  <option value= "fakechildservicedata1">this will be populated by client data?</option>
+                  <option value= "fakechildservicedata2">this will be populated by client data?</option>
+                </select>
+                    <p ng-show="editEdgeForm.childservice.$invalid" class="help-block">Child Service is required.</p>
+                </div>
 
-          <div class="form-group">
-            <label for="childService" id="childService">Child Service</label>
-   <!-- <input type="text" id="childService"> -->
-           <select class="form-control" >
-            <option>www</option>
-            <option>B2</option>
-           </select>
-          </div>
+<!-- *********  IP Service DROPDOWN MENU  ********* -->
+                <div class="form-group" ng-if="(pullDownOption == 'ipservice')" ng-class="{'has-error' :editEdgeForm.ipservice.$invalid && editEdgeForm.key.$pristine}">
+                    <label for="ipService" id="ipService">IP Service<mark class='red'> * </mark></label>
+                    <select name="ipservice" class="form-control" ng-model="ipService" ng-minlength="1" required>
+                  <option value= "childservice1">this will be populated by client data?</option>
+                  <option value= "childservice2">this will be populated by client data?</option>
+                </select>
+                    <p ng-show="editEdgeForm.ipservice.$invalid && editEdgeForm.key.$pristine" class="help-block">IP Service is required.</p>
+                </div>
 
-          <div class="form-group">
-            <label for="mapFunction" id='mapFunction'>Map Function</label>
-    <!--************ DOES mapFunction need an id?? ******************* -->
-          <select class="form-control">
-            <option>Decrease</option>
-            <option>Identity</option>
-            <option>Ignore</option>
-            <option>SetTo</option>
-      <!-- Selecting the SetTo option activates the Severity dropdown menu -->
-          </select>
+<!-- *********  Reduction Key  TEXTBOX  ********* -->
+                <div class="form-group" ng-if="(pullDownOption == 'reductionkey')" ng-class="{'has-error' :editEdgeForm.key.$invalid && editEdgeForm.key.$pristine}">
+                    <label for="reductionKey" id="reductionKey">Reduction Key <mark class='red'> * </mark></label>
+                    <input type="text" name='key' class="form-control" ng-model='keyValue' ng-minlength="1" required>
+                    <p ng-show="editEdgeForm.key.$invalid" class="help-block">Reduction Key is required.</p>
+                </div>
+
+<!-- *********  Friendly Name TEXTBOX  ********* -->
+                  <div class="form-group" ng-if="(pullDownOption == 'ipservice') || (pullDownOption =='reductionkey')" >
+                    <label for="friendlyName">Friendly Name</label>
+                    <input type="text" id="friendlyName" class="form-control">
+                </div>
+
+<!-- *********  Map Function DROPDOWN MENU  ********* -->
+                <div class="form-group" ng-class="{'has-error' :editEdgeForm.map.$invalid}">
+                    <label for="mapFunction" id="mapFunction">Map Function <mark class='red'> * </mark></label>
+                    <select name='map' class="form-control" ng-model="mapPullDownOption" ng-minlength="1" required>
+                  <option value="decrease">Decrease</option>
+                  <option  value="identity">Identity</option>
+                  <option value="ignore" >Ignore</option>
+                  <option value="setto">SetTo</option>
+                </select>
+                    <p ng-show="editEdgeForm.map.$invalid" class="help-block">Map Function is required.</p>
+                </div>
+
+<!-- *********  Severity DROPDOWN MENU  ********* -->
+                <div class="form-group" ng-show="(mapPullDownOption == 'setto')" ng-hide="(mapPullDownOption !== 'setto')">
+                    <label for="severity" id="severity">Severity<mark class='red'> * </mark></label>
+                    <!--************ DOES severity need an id?? ******************* -->
+                    <select class="form-control">
+                  <option>Critical</option>
+                  <option>Major</option>
+                  <option>Minor</option>
+                  <option>Warning</option>
+                  <option>Normal</option>
+                  <option>Intermediate</option>
+                </select>
+                </div>
+
+<!-- *********  Weight TEXTBOX  ********* -->
+                <div class="form-group" ng-class="{'has-error' :editEdgeForm.weight.$invalid && !editEdgeForm.weight.$pristine}">
+                    <label>Weight<mark class='red'> * </mark></label>
+                    <input type="number" name='weight' min="1" nnnks-only-number ng-model='weightEntered' allow-decimal="false" allow-negative="false" class="form-control" required>
+                    <p ng-show='editEdgeForm.weight.$invalid  && !editEdgeForm.weight.$pristine' class='help-block'>Weight is required. (Whole number greater than zero)</p>
+                </div>
+
+                <div></div>
+                <div class="btn-group" role="group" aria-label="...">
+                    <input type="submit" value="UPDATE EDGE" class="btn btn-default btn-success btnSaveCancel" ng-disabled='editEdgeForm.$invalid'>
+                    <button type="button" class="btn btn-default "><a href="#!/editbusinessservice">CANCEL</a></button>
+                </div>
+            </form>
         </div>
-
-        <div class="form-group">
-          <label for="severity" id="severity">Severity</label>
-    <!--************ DOES severity need an id?? ******************* -->
-          <select class="form-control">
-            <option>Critical</option>
-            <option>Major</option>
-            <option>Minor</option>
-            <option>Warning</option>
-            <option>Normal</option>
-            <option>Intermediate</option>
-          </select>
-        </div>
-
-         <div class="form-group">
-          <label for="weight">Weight</label>
-          <input type="text" id="weight" class="form-control" placeholder="1">
-          </div>
-      </form>
-
-      <div></div>
-      <div class="btn-group" role="group" aria-label="...">
- <!-- <button type="button" class="btn btn-default btn-lg btnSaveCancel">UPDATE EDGE</button> -->
-  <!-- **********   Or should it be <input type="submit", BELOW for better browser compatibility? -->
-
-      <input type="submit" value="UPDATE EDGE" class="btn btn-default btn-lg btnSaveCancel">
-      <button type="button" class="btn btn-default btn-lg"><a href="#!/managebusinessservices">CANCEL</a></button>
-      </div>
- <!-- ************   Is this where to close the form tag?  ***************-->
-    </form>
-  </div>
-</div><!-- Closes container -->
+    </div>
+</div>
+<!-- Closes container -->

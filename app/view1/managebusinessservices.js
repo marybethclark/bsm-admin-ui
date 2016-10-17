@@ -9,13 +9,9 @@
   });
 }])
 
-// .controller('View1Ctrl', [function() {
-//
-// }]);
-
 // code source, the tutorial:Using AngularJS service | Reading JSON file http://blog.hfarazm.com/angularjs-service/
 biz.controller('manageBusinessServicesCtrl', ['$scope','$http',function($scope, $http) {
-  $http.get("assets/js/fakeData.json").then(function(data){
-    $scope.businessServices = data.data;
+  $http.get("assets/js/fakeData.json").then(function(response){
+    $scope.businessServices = response.data;
   });
 }]);

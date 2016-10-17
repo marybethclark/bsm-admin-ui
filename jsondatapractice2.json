@@ -1,0 +1,16 @@
+
+{
+   "icecreams": [
+
+     {
+  "flavor" : "peach",
+  "price" : 5.00
+},
+{
+  "flavor" : "vanilla",
+  "price"  : 4.45
+},
+{
+  "flavor" : "chocolate",
+  "price" : 2.00
+}]

@@ -20,8 +20,8 @@ $scope.submitForm = function(isValid){
  };
 
 })
-// 0000000000000000000000000000000000
-.directive('nksOnlyNumber', function () {
+// Credit for custom directive below: Nitish Kumar https://github.com/nitishkumarsingh13/Angularjs-Directive-Accept-Number-Only
+.directive('nnksOnlyNumber', function () {
             return {
                 restrict: 'EA',
                 require: 'ngModel',

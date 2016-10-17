@@ -11,54 +11,61 @@
         <div class="col-md-6">
             <form name="addEdgeForm" ng-submit="submitForm(addEdgeForm.$valid)" novalidate>
                 <!-- novalidate prevents HTML5 validation  We'll do it better w/ ANgular-->
-                <!-- I  removed this - originally from the line above  action="/" method="post" -->
+
+<!-- *********  Business Service Name TEXTBOX  ********* -->
                 <div class="form-group">
                     <label for="businessServiceName">Business Service Name</label>
                     <input type="text" name="businessServiceName" id="businessServiceName" class="form-control" placeholder="name of business service will appear here">
                 </div>
 
+<!-- *********  Type DROPDOWN LIST  ********* -->
                 <div class="form-group" ng-class="{'has-error' : addEdgeForm.type.$invalid }">
-                    <p ng-show="addEdgeForm.type.$invalid" class="help-block">Type is required.</p>
                     <label for="type" id="type">Type <mark class='red'> * </mark></label>
                     <select name="type" class="form-control" ng-model="pullDownOption" required>
                   <option value= "childservice">Child Service</option>
                   <option value= "ipservice">IP Service</option>
                   <option value= "reductionkey">Reduction Key</option>
                 </select>
+                    <p ng-show="addEdgeForm.type.$invalid" class="help-block">Type is required.</p>
                 </div>
 
-                <div class="form-group" ng-if="(pullDownOption == 'childservice')" ng-class="{'has-error' :addEdgeForm.childservice.$invalid">
-                    <p ng-show="addEdgeForm.childservice.$invalid" class="help-block">Child Service is required.</p>
+<!-- *********  Child Service DROPDOWN LIST  ********* -->
+                <div class="form-group" ng-if="(pullDownOption == 'childservice')" ng-class="{'has-error' :addEdgeForm.childservice.$invalid}">
                     <label for="childService" id="childService">Child Service<mark class='red'> * </mark></label>
-                    <select name='childservice' class="form-control" ng-model="ChildServicePullDownOption"  ng-minlength="1" required>
+                    <select name='childservice' class="form-control" ng-model="ChildServicePullDownOption" ng-minlength="1" required>
 
                   <option value= "fakechildservicedata1">this will be populated by client data?</option>
                   <option value= "fakechildservicedata2">this will be populated by client data?</option>
                 </select>
+                    <p ng-show="addEdgeForm.childservice.$invalid" class="help-block">Child Service is required.</p>
                 </div>
 
+<!-- *********  IP Service DROPDOWN LIST  ********* -->
                 <div class="form-group" ng-if="(pullDownOption == 'ipservice')" ng-class="{'has-error' :addEdgeForm.ipservice.$invalid && addEdgeForm.key.$pristine}">
-                    <p ng-show="addEdgeForm.ipservice.$invalid && addEdgeForm.key.$pristine}" class="help-block">IP Service is required.</p>
                     <label for="ipService" id="ipService">IP Service<mark class='red'> * </mark></label>
-                    <select name="ipservice" class="form-control" ng-model="ipService" ng-minlength="1"  required>
+                    <select name="ipservice" class="form-control" ng-model="ipService" ng-minlength="1" required>
                   <option value= "childservice1">this will be populated by client data?</option>
                   <option value= "childservice2">this will be populated by client data?</option>
                 </select>
+                    <p ng-show="addEdgeForm.ipservice.$invalid && addEdgeForm.key.$pristine" class="help-block">IP Service is required.</p>
                 </div>
 
+<!-- *********  Reduction Key TEXTBOX  ********* -->
                 <div class="form-group" ng-if="(pullDownOption == 'reductionkey')" ng-class="{'has-error' :addEdgeForm.key.$invalid && addEdgeForm.key.$pristine}">
-                <p ng-show="addEdgeForm.key.$invalid" class="help-block">Reduction Key is required.</p>
                     <label for="reductionKey" id="reductionKey">Reduction Key <mark class='red'> * </mark></label>
                     <input type="text" name='key' class="form-control" ng-model='keyValue' ng-minlength="1" required>
+                    <p ng-show="addEdgeForm.key.$invalid" class="help-block">Reduction Key is required.</p>
                 </div>
 
-                <div class="form-group" ng-show="(pullDownOption == 'ipservice')" ng-hide="(pullDownOption !== 'ipservice')">
+<!-- *********  Friendly Name TEXTBOX  ********* -->
+              <div class="form-group" ng-if="(pullDownOption == 'ipservice') || (pullDownOption =='reductionkey')" >
+                <!-- <div class="form-group" ng-show="(pullDownOption == 'ipservice' || 'reductionkey')" ng-hide="(pullDownOption == 'childservice')"> -->
                     <label for="friendlyName">Friendly Name</label>
                     <input type="text" id="friendlyName" class="form-control">
                 </div>
 
+<!-- *********  Map Function DROPDOWN LIST  ********* -->
                 <div class="form-group" ng-class="{'has-error' :addEdgeForm.map.$invalid}">
-                    <p ng-show="addEdgeForm.map.$invalid" class="help-block">Map Function is required.</p>
                     <label for="mapFunction" id="mapFunction">Map Function <mark class='red'> * </mark></label>
                     <select name='map' class="form-control" ng-model="mapPullDownOption" ng-minlength="1" required>
                   <option value="decrease">Decrease</option>
@@ -66,8 +73,10 @@
                   <option value="ignore" >Ignore</option>
                   <option value="setto">SetTo</option>
                 </select>
+                    <p ng-show="addEdgeForm.map.$invalid" class="help-block">Map Function is required.</p>
                 </div>
 
+<!-- *********  Severity DROPDOWN LIST  ********* -->
                 <div class="form-group" ng-show="(mapPullDownOption == 'setto')" ng-hide="(mapPullDownOption !== 'setto')">
                     <label for="severity" id="severity">Severity<mark class='red'> * </mark></label>
                     <!--************ DOES severity need an id?? ******************* -->
@@ -81,16 +90,15 @@
                 </select>
                 </div>
 
+<!-- *********  Weight TEXTBOX  ********* -->
                 <div class="form-group" ng-class="{'has-error' :addEdgeForm.weight.$invalid && !addEdgeForm.weight.$pristine}">
                     <label>Weight<mark class='red'> * </mark></label>
-                    <input type="number" name='weight' min="1" nks-only-number ng-model='weightEntered' allow-decimal="false" allow-negative="false" class="form-control" required>
+                    <input type="number" name='weight' min="1" nnks-only-number ng-model='weightEntered' allow-decimal="false" allow-negative="false" class="form-control" required>
                     <p ng-show='addEdgeForm.weight.$invalid  && !addEdgeForm.weight.$pristine' class='help-block'>Weight is required. (Whole number greater than zero)</p>
                 </div>
 
                 <div></div>
                 <div class="btn-group" role="group" aria-label="...">
-                    <!-- <button type="submit" class="btn btn-default btn-lg btnSaveCancel">ADD EDGE</button> -->
-                    <!-- **********   Or should it be <input type="submit", BELOW for better browser compatibility? -->
                     <input type="submit" value="ADD EDGE" class="btn btn-default btn-success btnSaveCancel" ng-disabled='addEdgeForm.$invalid'>
                     <button type="button" class="btn btn-default "><a href="#!/editbusinessservice">CANCEL</a></button>
                 </div>
