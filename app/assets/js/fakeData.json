@@ -1,5 +1,8 @@
+
+
 [{
     "name": "A1",
+    "topContent":"This is the top content attr",
     "childName": [{
         "name": "A2",
         "childName": [{
@@ -9,6 +12,7 @@
     }]
 }, {
     "name": "B1",
+    "topContent":"This is the top content attr",
     "childName": [{
         "name": "B2",
         "childName": [{

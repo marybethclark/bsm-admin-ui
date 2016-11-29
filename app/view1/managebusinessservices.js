@@ -39,6 +39,8 @@ app.controller("Principal", ["$scope", "$compile", "$http", function($scope, $co
                     var currentElement = u[i];
                     var correctedObject = {};
                     correctedObject.title = currentElement.name;
+                    correctedObject.title = correctedObject.title + '<table scope="row"<a href=# target="_blank"><span class="View-in-topology" ><i class="fa fa-external-link-square" aria-hidden="true"></i>View in Topology UI</span></a><a href="#!/editbusinessservice"><button type="button" class="btn btn-default"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a><button type="button" class="btn btn-default"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</button></table>'; 
+              // correctedObject.topContent =   '<div class= "cell"<a href=# target="_blank"><span class="View-in-topology" ><i class="fa fa-external-link-square" aria-hidden="true"></i>View in Topology UI</span></a><a href="#!/editbusinessservice"><button type="button" class="btn btn-default"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a><button type="button" class="btn btn-default"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</button></div>';
                     correctedObject.subCollection = correctTheKeys(currentElement.childName);
                     correctedKeys.push(correctedObject);
                 } //closes for loop
@@ -70,7 +72,6 @@ app.controller("Principal", ["$scope", "$compile", "$http", function($scope, $co
         beforeBottomContent: "",
         afterBottomContent: ""
     };
-
 
     $scope.toggleAutoCollapse = function() {
         $scope.$broadcast("sacCollapseAll");

@@ -98,7 +98,7 @@
 }
 
 .sir-accordion-vertical-align > * {
-  display: table-cell;
+    display: table;
   vertical-align: middle;
   height: 100%;
 }
