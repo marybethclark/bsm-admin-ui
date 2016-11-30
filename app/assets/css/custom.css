@@ -5,11 +5,9 @@ body {
   .logo {
     max-width: 100%;
     height: auto;
-}
-
-.logo {
     vertical-align: middle;
 }
+
 img {
     border: 0;
     padding: 10px;
@@ -20,9 +18,26 @@ mark.red{
   background: none;
 }
 
+.btn_mbs_accordion{
+  padding: 2px;
+  margin-right: 4px;
+  margin-bottom: 5px;
+  float:right;
+}
 
+.padding_bottom{
+  padding-bottom:15px;
+}
 
-/*/////////////////  SCROLLBAR NOT WORKING YET /////////////////////////////*/
+.border_red_temp{
+  border: 1px solid red;
+}
+
+.data_mbs_accordion{
+  padding: 2px;
+  margin-left: 10px;
+  float:left;
+}
 
  /*  FROM SIR ACCORDION'S CSS below  */
 .full-height{

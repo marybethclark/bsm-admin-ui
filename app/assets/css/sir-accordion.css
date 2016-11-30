@@ -6,25 +6,25 @@
 }
 
 .sir-accordion-wrapper > div > .sir-accordion-header {
-  background-color: #323232;
+  background-color: #a5ce94;
 }
 
 .sir-accordion-wrapper > div > .sir-accordion-header:hover {
-  background-color: #3E3E3E;
+  background-color: #688fc2;
 }
 
 .sir-accordion-wrapper > div > .sir-accordion-header.active-header{
   /*background-color: #22354C; */
-  background-color: #2C5D18;
+  background-color: #81ba69;
 
 }
 
 .sir-accordion-wrapper > div > .sir-accordion-header.active-header:hover{
-  background-color: #2E4765;
+  background-color: #688fc2;
 }
 
 .sir-accordion-wrapper > div > .sir-accordion-header *{
-  color: white;
+  color: black;
 }
 
 .sir-accordion-group{
@@ -39,15 +39,15 @@
 }
 
 .sir-accordion-group > div > .sir-accordion-header:hover {
-  background-color: #f6f6f6;
+  background-color: #688fc2;
 }
 
 .sir-accordion-group > div > .sir-accordion-header.active-header{
-  background-color: #3F5F8B;
+  background-color: #448d24;
 }
 
 .sir-accordion-group > div > .sir-accordion-header.active-header:hover{
-  background-color: #2860A8;
+  background-color: #688fc2;
 }
 
 .sir-accordion-group .sir-accordion-header *{
@@ -55,7 +55,7 @@
 }
 
 .sir-accordion-group .sir-accordion-header.active-header *{
-  color: white;
+  color: black;
 }
 
 .sir-accordion-header{

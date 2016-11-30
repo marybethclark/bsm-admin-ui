@@ -39,8 +39,8 @@ app.controller("Principal", ["$scope", "$compile", "$http", function($scope, $co
                     var currentElement = u[i];
                     var correctedObject = {};
                     correctedObject.title = currentElement.name;
-                    correctedObject.title = correctedObject.title + '<table scope="row"<a href=# target="_blank"><span class="View-in-topology" ><i class="fa fa-external-link-square" aria-hidden="true"></i>View in Topology UI</span></a><a href="#!/editbusinessservice"><button type="button" class="btn btn-default"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a><button type="button" class="btn btn-default"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</button></table>'; 
-              // correctedObject.topContent =   '<div class= "cell"<a href=# target="_blank"><span class="View-in-topology" ><i class="fa fa-external-link-square" aria-hidden="true"></i>View in Topology UI</span></a><a href="#!/editbusinessservice"><button type="button" class="btn btn-default"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a><button type="button" class="btn btn-default"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</button></div>';
+                    correctedObject.title = '<div class= "data_mbs_accordion"></div>' + correctedObject.title + '<table class="table"><tr><div class="col-md-12 border_red_temp padding_bottom"><a href=#><span><i class="fa fa-external-link-square " aria-hidden="true"></i>View in Topology UI</span></a><a href=#><button type="button" class="btn btn-default btn_mbs_accordion"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</button></a><a href="#!/editbusinessservice"><button type="button" class="btn btn-default btn_mbs_accordion"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Edit</button></a></div></div></tr></table>';
+
                     correctedObject.subCollection = correctTheKeys(currentElement.childName);
                     correctedKeys.push(correctedObject);
                 } //closes for loop
